@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+
+.container {
+  border: 2px solid #000;
+  background-color: #232D4B;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #000;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+</style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-white" style = "background-color: #d8e1ef;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">HoosStudying</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+        <a class="nav-link" href="{% url 'Departmentview' %}">Add Courses</a>
+        <a class="nav-link" href="{% url 'cal:calendar' %}">Calendar</a>
+        <a class="nav-link" href="{% url 'chat:home1' %}">Chats</a>
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div  class="container-fluid min-vh-100 pt-3 bg-secondary text-white" >
+<div align="center">
+    <h2>HoosChat</h2>
+</div>
+
+<div align="center">
+    <h3>Room Name Format: department code-course number </h3>
+    <h4>Example: "cs-3240"</h4>
+</div>
+
+<div class="container">
+    <style>
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #F05E16 ;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #F84C1E;
+    }
+
+
+    </style>
+
+    <form id="post-form" method="POST" action="checkview">
+        {% csrf_token %}
+        <label style = color:white>Room Name</label>
+        <input type="text" name="room_name" id="room_name" width="100px"/>
+        <label style = color:white>Username</label>
+        <input type="text" name="username" id="username" width="100px" />
+        <input type="submit" value="Enter Room">
+    </form>
+</div>
+    <div align="center" class = "mt-3">
+    <h6>Use the same username as the one attached to your profile, so Hoos can find and check out your profile later!</h6>
+    <h6>If the chat you enter has no messages, you are the first one to use that chat room! Leave the first message!</h6>
+</div>
+</div>
+<footer class="fixed-bottom bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-dark">HoosStudying</a>
+    <a class="text-dark"> - CS 3240 B-14</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+</body>
+
+
+</html>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

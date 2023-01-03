@@ -1,0 +1,21 @@
+#we need django
+Django
+
+#We need gunicorn for Heroku
+gunicorn
+
+#we need django-heroku for Heroku internal process
+django-heroku
+
+#need postgressql
+psycopg2
+
+#need authentication
+django-allauth
+
+#bootstrap
+django-forms-bootstrap
+channels==4.0.0
+
+#bootstrap5
+django-bootstrap-v5
